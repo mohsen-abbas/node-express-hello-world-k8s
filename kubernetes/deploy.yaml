@@ -33,7 +33,7 @@ spec:
       serviceAccountName: hello-world
       containers:
       - name: hello-world-container
-        image: us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world:73acef32903342e1e7302fc209c2c5ac5b8e5329
+        image: us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world:27ad232092dcd6572f242465609a539cf89e50be
         command: ["/bin/sh", "-c"]
         args: [". /vault/secrets/config && node app.js"]
         ports:
