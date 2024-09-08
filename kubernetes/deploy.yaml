@@ -38,6 +38,9 @@ spec:
         args: [". /vault/secrets/config && node app.js"]
         ports:
         - containerPort: 3000
+        volumeMounts:
+        - name: vault-secrets-config # Updated volume name to avoid conflict
+          mountPath: /vault/secrets
         env:
         - name: POD_NAME
           valueFrom:
@@ -55,5 +58,5 @@ spec:
             cpu: "10m"
             memory: "32Mi"
       volumes:
-      - name: vault-secrets
+      - name: vault-secrets-config
         emptyDir: {} # This will be replaced by Vault Agent Injector
