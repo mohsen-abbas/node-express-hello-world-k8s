@@ -38,6 +38,15 @@ spec:
         args: [". /vault/secrets/config && node app.js"]
         ports:
         - containerPort: 3000
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
         resources:
           requests:
             cpu: "10m"
